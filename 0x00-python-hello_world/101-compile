@@ -1,7 +1,4 @@
 #!/bin/bash
-
 pyc_file="${PYFILE%.py}.pyc"
-
 python -m py_compile "$PYFILE" -o "$pyc_file"
-
 echo "Compiling $PYFILE ..."
