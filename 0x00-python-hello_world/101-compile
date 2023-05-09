@@ -1,4 +1,4 @@
-#!/bin/bash/python3
+#!/bin/bash
 pyfile="$PYFILE"
 pyfilec="${pyfile}c"
 echo "Compiling $pyfile ..."
