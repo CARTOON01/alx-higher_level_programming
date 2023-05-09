@@ -1,38 +1,49 @@
-#!/usr/bin/python3
-#include <stdio.h>
-#include <stdlib.h>
 #include "lists.h"
 
 /**
- * insert_node - inserts a node into a sorted singly linked list
- * @head: pointer to pointer to head of list
- * @number: integer to be included in new node
- * Return: the address of the new node, or NULL if it failed
+ * insert_node - inserts a new node
+ * at a given position.
+ * @head: head of a list.
+ * @number: index of the list where the new node is
+ * added.
+ * Return: the address of the new node, or NULL if it
+ * failed.
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-    listint_t *new_node = malloc(sizeof(listint_t));
-    listint_t *current;
+	listint_t *new;
+	listint_t *h;
+	listint_t *h_prev;
 
-    if (!new_node)
-        return (NULL);
+	h = *head;
+	new = malloc(sizeof(listint_t));
 
-    new_node->n = number;
-    new_node->next = NULL;
+	if (new == NULL)
+		return (NULL);
 
-    if (*head == NULL || (*head)->n >= number)
-    {
-        new_node->next = *head;
-        *head = new_node;
-        return (new_node);
-    }
+	while (h != NULL)
+	{
+		if (h->n > number)
+			break;
+		h_prev = h;
+		h = h->next;
+	}
 
-    current = *head;
-    while (current->next != NULL && current->next->n < number)
-        current = current->next;
+	new->n = number;
 
-    new_node->next = current->next;
-    current->next = new_node;
+	if (*head == NULL)
+	{
+		new->next = NULL;
+		*head = new;
+	}
+	else
+	{
+		new->next = h;
+		if (h == *head)
+			*head = new;
+		else
+			h_prev->next = new;
+	}
 
-    return (new_node);
+	return (new);
 }
