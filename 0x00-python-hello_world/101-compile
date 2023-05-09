@@ -1,4 +1,7 @@
-#!/bin/bash
-pyc_file="${PYFILE%.py}.pyc"
-python -m py_compile "$PYFILE" -o "$pyc_file"
-echo "Compiling $PYFILE ..."
+#!/bin/bash/python3
+pyfile="$PYFILE"
+pyfilec="${pyfile}c"
+echo "Compiling $pyfile ..."
+python3 -m py_compile "$pyfile"
+mv "${pyfile}__pycache__/${pyfile}*.pyc" "$pyfilec"
+rm -rf "${pyfile}__pycache__"
