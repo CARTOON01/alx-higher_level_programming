@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-
 """
 This module contains a function that prints a text with 2 new lines after
 """
-
-
 def text_indentation(text):
     """
     This function prints a text with 2 new lines after each occurrence
