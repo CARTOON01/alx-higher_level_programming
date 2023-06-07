@@ -1,4 +1,6 @@
- a class TestMaxInteger for max_integer([...])"""
+#!/usr/bin/python3
+
+"""Defines a class TestMaxInteger for max_integer([...])"""
 
 import unittest
 
